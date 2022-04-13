@@ -1,0 +1,23 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    padding: 10px;
+    font-size: 2rem;
+}
+.grid-item {
+    border: 1px solid black;
+    padding: 20px;
+    text-align: center;
+}
+.grid-label {
+    background-color: #ddb954;
+    color: white;
+}
+.no-support {
+    background-color: rgb(255, 100, 80);
+    color: white;
+}
+.limited {
+    background-color: #ecd447;
+    color: white;
+}

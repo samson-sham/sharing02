@@ -1,0 +1,386 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Sharings</title>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./dist/app.css">
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h2>Sharings</h2>
+                    <p>
+                        Introduction to internet streaming
+                    </p>
+                </section>
+                <section>
+                    <h3 style="text-align: left;">At first</h3>
+                    <p>Browsers were implemented as single process</p>
+                    <p>Browsers did not have enough computational power nor memory to process video playback</p>
+                    <p>Thus, video playback was "out-sourced" to 3rd party applications</p>
+                </section>
+                <section>
+                    <h3 style="text-align: left;">Old days</h3>
+                    <p>There were protocols like</p>
+                    <ul>
+                        <li>Progressive download</li>
+                        <li>RTSP</li>
+                        <li>RTMP</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3 style="text-align: left;">Progressive download</h3>
+                    <p style="text-align: left;font-size: 1rem;">
+                        By making use of HTTP range requests
+                    </p>
+                    <p style="text-align: left;font-size: 1.5rem;margin-bottom: 0;">
+                        Server side response
+                    </p>
+                    <pre style="margin-top: 0;"><code data-trim class="http-code">
+                        HTTP/1.1 200 OK
+                        Accept-Ranges: bytes
+                        Content-Length: 14246515
+                    </code></pre>
+                    <p style="text-align: left;font-size: 1.5rem;margin-bottom: 0;">
+                        Client side request
+                    </p>
+                    <pre style="margin-top: 0;"><code data-trim class="http-code">
+                        Range: bytes=0-1023
+                    </code></pre>
+                    <p style="text-align: left;font-size: 1.5rem;margin-bottom: 0;">
+                        Server side response
+                    </p>
+                    <pre style="margin-top: 0;"><code data-trim class="http-code">
+                        HTTP/1.1 206 Partial Content
+                        Content-Range: bytes 0-1023/14246515
+                        Content-Length: 1024
+                    </code></pre>
+                </section>
+                <section>
+                    <h3 style="text-align: left;">RTSP/RTMP</h3>
+                    <p style="text-align: left;">
+                        They had no browser native support, therefore required plugins like
+                    </p>
+                    <ul>
+                        <li>Macromedia Flash</li>
+                        <li>Sun Java</li>
+                        <li>Microsoft Silverlight</li>
+                    </ul>
+                    <img src="assets/flash.svg" style="position: absolute; width: 100px; margin-top: -70px;">
+                    <img src="assets/java.svg" style="position: absolute; width: 100px; margin-top: 40px;">
+                    <img src="assets/Silverlight.png" style="position: absolute; width: 300px; margin-top: 150px;">
+                </section>
+                <section>
+                    <img src="./assets/html5.png" class="fragment" data-fragment-index="3" style="position: absolute; margin-top: -6rem" />
+                    <h3 style="text-align: left;">NPAPI</h3>
+                    <p style="text-align: left;" class="fragment" data-fragment-index="1">However though...</p>
+                    <p style="text-align: left;" class="fragment" data-fragment-index="2">These plugins relied on NPAPI</p>
+                    <p style="text-align: left;" class="fragment" data-fragment-index="3">Which browser vendors abolished due to the rise of HTML5</p>
+                </section>
+                <section data-background="assets/Apple-logo.png">
+                    <h3 style="text-align: left; color: #333">HTML5 age (2008)</h3>
+                    <p style="text-align: left; color: #333" class="fragment">Part of the reason why HTML5 came so strong is because Apple open-sourced its <b>Webkit</b> project, a browser engine, in 2005.</p>
+                    <p style="text-align: left; color: #333" class="fragment">Where SmartTVs adopted Webkit as their SmartTV app execution environment.</p>
+                    <p style="text-align: left; color: #333" class="fragment">Which also gave birth to Google Chrome in 2008.</p>
+                </section>
+                <section>
+                    <h3 style="text-align: left;">Pre MP4</h3>
+                    <p>The mainstream of media containers were</p>
+                    <ul>
+                        <li>.avi</li>
+                        <li>.wmv</li>
+                        <li>.mpg</li>
+                    </ul>
+                </section>
+                <section data-auto-animate>
+                    <h3 style="text-align: left;">MP4 age</h3>
+                    <p style="text-align: left;font-size: 1.5rem;">Thanks to MP4, HTTP distribution procotols arose...</p>
+                    <ul>
+                        <!-- HLS -->
+                        <li class="fragment" data-fragment-index="1"><b>Apple</b> proposed <span class="fragment highlight-blue" data-fragment-index="2">H</span>TTP <span class="fragment highlight-blue" data-fragment-index="2">L</span>ive <span class="fragment highlight-blue" data-fragment-index="2">S</span>treaming in 2009</li>
+                        <!-- Smooth Streaming -->
+                        <li class="fragment" data-fragment-index="3"><b>Microsoft</b> proposed <span class="fragment highlight-red" data-fragment-index="4">Smooth Streaming</span> in 2010</li>
+                        <!-- DASH -->
+                        <li class="fragment" data-fragment-index="5"><b>MPEG group</b> proposed <span class="fragment highlight-green" data-fragment-index="6">D</span>ynamic <span class="fragment highlight-green" data-fragment-index="6">A</span>daptive <span class="fragment highlight-green" data-fragment-index="6">S</span>treaming over <span class="fragment highlight-green" data-fragment-index="6">H</span>TTP in 2011</li>
+                        <!-- HDS -->
+                        <li class="fragment" data-fragment-index="7"><b>Adobe</b> proposed <span class="fragment highlight-blue" data-fragment-index="8">H</span>TTP <span class="fragment highlight-blue" data-fragment-index="8">D</span>ynamic <span class="fragment highlight-blue" data-fragment-index="8">S</span>treaming</li>
+                    </ul>
+                </section>
+                <section data-auto-animate>
+                    <h3 style="text-align: left;">MP4 age</h3>
+                    <p style="text-align: left;font-size: 1.5rem;">Thanks to MP4, HTTP distribution procotols arose...</p>
+                    <ul>
+                        <!-- HLS -->
+                        <li><b>Apple</b> proposed <span style="color: #1b91ff">HLS</span> in 2009</li>
+                        <!-- Smooth Streaming -->
+                        <li class="fragment strike"><b>Microsoft</b> proposed <span style="color: #ff2c2d;">Smooth Streaming</span> in 2010&nbsp;</li>
+                        <!-- DASH -->
+                        <li><b>MPEG group</b> proposed <span style="color: #17ff2e">DASH</span> in 2011</li>
+                        <!-- HDS -->
+                        <li class="fragment strike"><b>Adobe</b> proposed <span style="color: #1b91ff">HDS</span></li>
+                    </ul>
+                    <p class="fragment" style="text-align: left;font-size: 1.5rem;">Protocols are died because they requires plugins (Silverlight, Flash)</p>
+                </section>
+                <section>
+                    <h3 style="text-align: left;">HLS/DASH</h3>
+                    <ul>
+                        <li>Manifest</li>
+                        <ul>
+                            <li>Compilable list of renditions</li>
+                            <ul>
+                                <li>Resolutions</li>
+                                <li>Bitrates</li>
+                            </ul>
+                            <li>Compilable list of segments</li>
+                        </ul>
+                        <li>Segments</li>
+                        <ul>
+                            <li>HLS: MPEG-TS</li>
+                            <li>DASH: MP4</li>
+                        </ul>
+                    </ul>
+                </section>
+                <section>
+                    <h3 style="text-align: left;">Common Media Application Format (CMAF)</h3>
+                    <p style="text-align: left;font-size: 1.5rem;">Proposed by Apple and Microsoft, to solve different container formats used in HLS & DASH, standardized in 2018</p>
+                    <img class="r-stretch" style="margin-bottom: 0;" src="assets/CMAF.png">
+                    <p style="text-align: left;font-size: 1rem;">CMAF saves bandwidth & storage cost from origin & CDNs</p>
+                </section>
+                <section data-background="assets/flash.svg">
+                    <h3 style="text-align: left;">Media Source Extension (MSE)</h3>
+                    <p style="text-align: left;">
+                        In 2013, MSE has been written into W3C specification, which catalyzed the abandon of Adobe Flash on streaming
+                    </p>
+                </section>
+                <section>
+                    <h3 style="text-align: left;">Media Source Extension (MSE)</h3>
+                    <div style="text-align: left; font-size: 1.5rem;">
+                        Media Source Extension allows
+                    </div>
+                    <div class="fragment" data-fragment-index="1" style="text-align: right;">
+                        Video to be played from Buffer in Javascript
+                    </div>
+                    <div class="fragment" data-fragment-index="1" style="text-align: left; font-size: 1.5rem;">
+                        and
+                    </div>
+                    <div class="fragment" data-fragment-index="1" style="text-align: right;">
+                        Buffer could be appended in realtime
+                    </div>
+                    <div class="fragment" data-fragment-index="2" style="text-align: left; font-size: 1.5rem;">
+                        which means
+                    </div>
+                    <div class="fragment" data-fragment-index="3" style="text-align: right;">
+                        Live Streaming becomes possible
+                    </div>
+                </section>
+                <section>
+                    <h3 style="text-align: left;">HTML5 Players</h3>
+                    <div style="display: flex; align-items: center;">
+                        <img src="assets/safari.svg" style="width: 2rem; margin: 0;" />
+                        <div style="font-size: 1rem;">Since Apple proposed HLS, Apple self-handled HLS within their private realm</div>
+                    </div>
+                    <div style="display: flex; align-items: center; font-size: 2rem;">
+                        <div>For other browsers, like&nbsp;</div>
+                        <img src="assets/chrome.svg" style="width: 2rem; margin: 0;" />
+                        <img src="assets/firefox.svg" style="width: 2rem; margin: 0;" />
+                        <img src="assets/edge.svg" style="width: 2rem; margin: 0;" />
+                        <div>&nbsp;you will need a Javascript player, </div>
+                    </div>
+                    <div style="font-size: 2rem; text-align: left;">
+                        aka HTML5 Players, examples are
+                    </div>
+                    <ul class="fragment">
+                        <li><b>Shaka Player</b> released by Google</li>
+                        <li><b>VideoJS</b> released by Brightcove</li>
+                        <li><b>Dash.js</b> released by DASH IF</li>
+                        <li><b>hls.js</b> released by Dailymotion</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3 style="text-align: left;">HTML5 Players</h3>
+                    <div style="text-align: left; font-size: 2rem;">
+                        What a HTML5 Player does are
+                    </div>
+                    <ul>
+                        <li>Unfold media manifest</li>
+                        <li>Download media segments</li>
+                        <li>Evaluate client bandwidth</li>
+                        <li>Decide a suitable rendition</li>
+                        <li>Unpack media segments to Buffer</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h3 style="text-align: left;">WebRTC</h3>
+                    <p class="fragment" style="text-align: left;">
+                        Despite its early release in 2011, WebRTC has not been picked up as a streaming candidate until recently
+                    </p>
+                    <p class="fragment" style="text-align: left;">
+                        Because HTTP streamings has an inevitable drawback, which is Live Streaming Latency
+                    </p>
+                </section>
+                <section>
+                    <h3 style="text-align: left;">Live Streaming Latency</h3>
+                    <img class="r-stretch" src="assets/latency.png" />
+                </section>
+                <section>
+                    <h3 style="text-align: left;">Low Latency Streaming</h3>
+                    <ul style="font-size: 2rem;">
+                        <li>Low-Latency HLS (L-HLS) proposed by Akamai, Elemental, JW Player, Mux, and Wowza in 2016</li>
+                        <li>Low-Latency HLS (LL-HLS) proposed by Apple in 2019</li>
+                        <li>Low-Latency DASH (LL-DASH)</li>
+                        <li><a href="https://datatracker.ietf.org/doc/draft-theo-hesp/">High-Efficiency Streaming Protocol (HESP)</a> proposed by Synamedia, THEO in 2020</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3 style="text-align: left;">Low Latency Streaming</h3>
+                    <p style="text-align: left;font-size: 1.5rem;">Different techniques used in proposals</p>
+                    <ul>
+                        <li>HTTP/1.1 Chunked Transfer-Encoding</li>
+                        <li>HTTP/1.1 Ranged requests</li>
+                        <li>HTTP/2 Push</li>
+                        <li>Fragmented MP4</li>
+                        <li>#EXT-X-PRELOAD-HINT on manifest</li>
+                    </ul>
+                </section>
+                <section data-auto-animate>
+                    <h3 style="text-align: left;">Contribution Protocols</h3>
+                    <p style="text-align: left;">
+                        The most commonly used consumer contribution protocols are
+                    </p>
+                    <ul>
+                        <li>RTMP/RTSP</li>
+                        <li>HTTP PUT</li>
+                    </ul>
+                </section>
+                <section data-auto-animate>
+                    <h3 style="text-align: left;">Contribution Protocols</h3>
+                    <p style="text-align: left;">
+                        More advanced contribution protocols
+                    </p>
+                    <ul>
+                        <li>Secure Reliable Transport (SRT)</li>
+                        <li>Zixi</li>
+                        <li>Reliable Internet Stream Transport (RIST)</li>
+                        <li>Network Device Interface (NDI)</li>
+                        <li>RTP with Forward Error Correction (RTP-FEC)</li>
+                    </ul>
+                </section>
+                <section data-auto-animate>
+                    <h3 style="text-align: left;">Sum up</h3>
+                    <div class="grid-container">
+                        <div class="grid-item">
+                            <div class="grid-label">Contribution</div>
+                            <div>RTMP</div>
+                            <div>RTSP</div>
+                            <div>RIST</div>
+                            <div>SRT</div>
+                            <div>NDI</div>
+                            <div>RTP-FEC</div>
+                            <div>Zixi</div>
+                            <div>WebRTC?</div>
+                        </div>
+                        <div class="grid-item">
+                            <div class="grid-label">Codec</div>
+                            <div>H.264</div>
+                            <div>H.265</div>
+                            <div>AV1</div>
+                            <div>VP9</div>
+                            <div>VP8</div>
+                        </div>
+                        <div class="grid-item">
+                            <div class="grid-label">Package</div>
+                            <div>MPEG-TS</div>
+                            <div>fMP4</div>
+                            <div>CMAF</div>
+                        </div>
+                        <div class="grid-item">
+                            <div class="grid-label">Protocol</div>
+                            <div>HTTP/1.1</div>
+                            <div>HTTP/2</div>
+                            <div>HTTP/3</div>
+                            <div>UDP</div>
+                            <div>RTP</div>
+                        </div>
+                        <div class="grid-item">
+                            <div class="grid-label">Distribution</div>
+                            <div>HLS</div>
+                            <div>DASH</div>
+                            <div>WebRTC</div>
+                            <div>SmoothSt.</div>
+                            <div>Progressive</div>
+                        </div>
+                    </div>
+                </section>
+                <section data-auto-animate>
+                    <h3 style="text-align: left;">Sum up</h3>
+                    <div class="grid-container">
+                        <div class="grid-item">
+                            <div class="grid-label">Contribution</div>
+                            <div class="no-support">RTMP</div>
+                            <div class="no-support">RTSP</div>
+                            <div class="no-support">RIST</div>
+                            <div class="no-support">SRT</div>
+                            <div class="no-support">NDI</div>
+                            <div class="no-support">RTP-FEC</div>
+                            <div class="no-support">Zixi</div>
+                            <div>WebRTC?</div>
+                        </div>
+                        <div class="grid-item">
+                            <div class="grid-label">Codec</div>
+                            <div>H.264</div>
+                            <div class="limited">H.265</div>
+                            <div class="limited">AV1</div>
+                            <div>VP9</div>
+                            <div>VP8</div>
+                        </div>
+                        <div class="grid-item">
+                            <div class="grid-label">Package</div>
+                            <div>MPEG-TS</div>
+                            <div>fMP4</div>
+                            <div>CMAF</div>
+                        </div>
+                        <div class="grid-item">
+                            <div class="grid-label">Protocol</div>
+                            <div>HTTP/1.1</div>
+                            <div class="limited">HTTP/2</div>
+                            <div class="no-support">HTTP/3</div>
+                            <div class="no-support">UDP</div>
+                            <div class="no-support">RTP</div>
+                        </div>
+                        <div class="grid-item">
+                            <div class="grid-label">Distribution</div>
+                            <div>HLS</div>
+                            <div>DASH</div>
+                            <div>WebRTC</div>
+                            <div class="no-support">SmoothSt.</div>
+                            <div>Progressive</div>
+                        </div>
+                    </div>
+                    <div style="font-size: 1rem; display: flex; justify-content: space-evenly;">
+                        <div><span style="color: rgb(255, 100, 80)">■</span>: No browser support</div>
+                        <div><span style="color: #ecd447">■</span>: Limited browser support</div>
+                    </div>
+                </section>
+                <section>
+                    <h3 style="text-align: left;">Future potential protocols</h3>
+                    <ul>
+                        <li>HTTP/3 QUIC</li>
+                        <li>HTTP/3 WebTransport</li>
+                        <li>WebCodec</li>
+                    </ul>
+                </section>
+                <section>
+                    <h1>THE END</h1>
+                </section>
+            </div>
+
+        </div>
+        <script src="dist/app.bundle.js"></script>
+    </body>
+</html>

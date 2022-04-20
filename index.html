@@ -20,9 +20,9 @@
                 </section>
                 <section>
                     <h3 style="text-align: left;">At first</h3>
-                    <p>Browsers were implemented as single process</p>
-                    <p>Browsers did not have enough computational power nor memory to process video playback</p>
-                    <p>Thus, video playback was "out-sourced" to 3rd party applications</p>
+                    <p class="fragment">Browsers were implemented as single process</p>
+                    <p class="fragment">Browsers did not have enough computational power nor memory to process video playback</p>
+                    <p class="fragment">Thus, video playback was "out-sourced" to 3rd party applications</p>
                 </section>
                 <section>
                     <h3 style="text-align: left;">Old days</h3>
@@ -89,7 +89,7 @@
                     <p style="text-align: left; color: #333" class="fragment">Which also gave birth to Google Chrome in 2008.</p>
                 </section>
                 <section>
-                    <h3 style="text-align: left;">Pre MP4</h3>
+                    <h3 style="text-align: left;">Pre MPEG-4</h3>
                     <p>The mainstream of media containers were</p>
                     <ul>
                         <li>.avi</li>
@@ -98,8 +98,8 @@
                     </ul>
                 </section>
                 <section data-auto-animate>
-                    <h3 style="text-align: left;">MP4 age</h3>
-                    <p style="text-align: left;font-size: 1.5rem;">Thanks to MP4, HTTP distribution procotols arose...</p>
+                    <h3 style="text-align: left;">MPEG-4 age</h3>
+                    <p style="text-align: left;font-size: 1.5rem;">Thanks to MPEG-4, HTTP distribution procotols arose...</p>
                     <ul>
                         <!-- HLS -->
                         <li class="fragment" data-fragment-index="1"><b>Apple</b> proposed <span class="fragment highlight-blue" data-fragment-index="2">H</span>TTP <span class="fragment highlight-blue" data-fragment-index="2">L</span>ive <span class="fragment highlight-blue" data-fragment-index="2">S</span>treaming in 2009</li>
@@ -112,8 +112,8 @@
                     </ul>
                 </section>
                 <section data-auto-animate>
-                    <h3 style="text-align: left;">MP4 age</h3>
-                    <p style="text-align: left;font-size: 1.5rem;">Thanks to MP4, HTTP distribution procotols arose...</p>
+                    <h3 style="text-align: left;">MPEG-4 age</h3>
+                    <p style="text-align: left;font-size: 1.5rem;">Thanks to MPEG-4, HTTP distribution procotols arose...</p>
                     <ul>
                         <!-- HLS -->
                         <li><b>Apple</b> proposed <span style="color: #1b91ff">HLS</span> in 2009</li>
@@ -149,7 +149,13 @@
                     <h3 style="text-align: left;">Common Media Application Format (CMAF)</h3>
                     <p style="text-align: left;font-size: 1.5rem;">Proposed by Apple and Microsoft, to solve different container formats used in HLS & DASH, standardized in 2018</p>
                     <img class="r-stretch" style="margin-bottom: 0;" src="assets/CMAF.png">
+                    <div style="text-align: right; font-size: 0.4rem;">Credit: wowza</div>
                     <p style="text-align: left;font-size: 1rem;">CMAF saves bandwidth & storage cost from origin & CDNs</p>
+                </section>
+                <section>
+                    <h3 style="text-align: left;">Common Media Application Format (CMAF)</h3>
+                    <img class="r-stretch" style="margin-bottom: 0;" src="assets/fmp4.png">
+                    <div style="text-align: right; font-size: 0.4rem;">Credit: bitmovin</div>
                 </section>
                 <section data-background="assets/flash.svg">
                     <h3 style="text-align: left;">Media Source Extension (MSE)</h3>
@@ -214,7 +220,6 @@
                         <li>Unpack media segments to Buffer</li>
                     </ul>
                 </section>
-                
                 <section>
                     <h3 style="text-align: left;">WebRTC</h3>
                     <p class="fragment" style="text-align: left;">
@@ -227,6 +232,7 @@
                 <section>
                     <h3 style="text-align: left;">Live Streaming Latency</h3>
                     <img class="r-stretch" src="assets/latency.png" />
+                    <div style="text-align: right; font-size: 0.4rem;">Credit: easylive.io</div>
                 </section>
                 <section>
                     <h3 style="text-align: left;">Low Latency Streaming</h3>
@@ -235,6 +241,7 @@
                         <li>Low-Latency HLS (LL-HLS) proposed by Apple in 2019</li>
                         <li>Low-Latency DASH (LL-DASH)</li>
                         <li><a href="https://datatracker.ietf.org/doc/draft-theo-hesp/">High-Efficiency Streaming Protocol (HESP)</a> proposed by Synamedia, THEO in 2020</li>
+                        <li>WebRTC</li>
                     </ul>
                 </section>
                 <section>
@@ -248,6 +255,7 @@
                         <li>#EXT-X-PRELOAD-HINT on manifest</li>
                     </ul>
                 </section>
+                
                 <section data-auto-animate>
                     <h3 style="text-align: left;">Contribution Protocols</h3>
                     <p style="text-align: left;">
@@ -355,8 +363,8 @@
                         </div>
                         <div class="grid-item">
                             <div class="grid-label">Distribution</div>
-                            <div>HLS</div>
-                            <div>DASH</div>
+                            <div class="limited">HLS</div>
+                            <div class="limited">DASH</div>
                             <div>WebRTC</div>
                             <div class="no-support">SmoothSt.</div>
                             <div>Progressive</div>
